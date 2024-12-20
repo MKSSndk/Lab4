@@ -167,4 +167,10 @@ def compare_artists(message):
     else:
         bot.reply_to(message, f"{artist1} и {artist2} одинаково популярны, у каждого по {count1} песен, найденных на Genius.")
 
+#Обработчик некорректных команд
+@bot.message_handler(func=lambda message: True)
+def unknown_command(message):
+    bot.reply_to(message, "Неизвестная команда. Используйте /start, чтобы увидеть список доступных команд.")
 
+#Запуск бота
+bot.polling(none_stop=True)
